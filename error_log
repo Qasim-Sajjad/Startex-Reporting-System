@@ -1,0 +1,20 @@
+[19-Nov-2024 14:10:55 UTC] PHP Warning:  require(/home/starfbha/online.startexmarketing.com/vendor/composer/../symfony/polyfill-php72/bootstrap.php): Failed to open stream: No such file or directory in /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php on line 41
+[19-Nov-2024 14:10:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/starfbha/online.startexmarketing.com/vendor/composer/../symfony/polyfill-php72/bootstrap.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/starfbha/online.startexmarketing.com/vendor/autoload.php(25): ComposerAutoloaderInitda9b7a1dc1dd923105198c572cc7df8d::getLoader()
+#2 /home/starfbha/online.startexmarketing.com/index.php(13): require('/home/starfbha/...')
+#3 {main}
+  thrown in /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php on line 41
+[25-Nov-2024 11:46:40 UTC] PHP Warning:  require(/home/starfbha/online.startexmarketing.com/vendor/composer/../symfony/polyfill-php72/bootstrap.php): Failed to open stream: No such file or directory in /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php on line 41
+[25-Nov-2024 11:46:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/starfbha/online.startexmarketing.com/vendor/composer/../symfony/polyfill-php72/bootstrap.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php:41
+Stack trace:
+#0 /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php(45): {closure}()
+#1 /home/starfbha/online.startexmarketing.com/vendor/autoload.php(25): ComposerAutoloaderInitda9b7a1dc1dd923105198c572cc7df8d::getLoader()
+#2 /home/starfbha/online.startexmarketing.com/index.php(13): require('/home/starfbha/...')
+#3 {main}
+  thrown in /home/starfbha/online.startexmarketing.com/vendor/composer/autoload_real.php on line 41
+[09-Dec-2024 07:31:19 UTC] PHP Fatal error:  Trait "App\Models\HasFactory" not found in /home/starfbha/reporting.startexmarketing.com/app/Models/Department.php on line 7
+[16-Dec-2024 09:23:03 UTC] PHP Fatal error:  Trait "Laravel\Sanctum\HasApiTokens" not found in /home/starfbha/reporting.startexmarketing.com/app/Models/User.php on line 9
+[16-Dec-2024 09:23:15 UTC] PHP Fatal error:  Trait "Laravel\Sanctum\HasApiTokens" not found in /home/starfbha/reporting.startexmarketing.com/app/Models/User.php on line 9
+[16-Dec-2024 09:25:01 UTC] PHP Fatal error:  Trait "Laravel\Sanctum\HasApiTokens" not found in /home/starfbha/reporting.startexmarketing.com/app/Models/User.php on line 9

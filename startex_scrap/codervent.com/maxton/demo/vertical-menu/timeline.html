@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en" data-bs-theme="blue-theme">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Startex Marketing</title>
+  
+  <!-- favicon -->
+  <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png">
+  
+  <!-- loader -->
+  <link href="assets/css/pace.min.css" rel="stylesheet">
+  <script src="assets/js/pace.min.js"></script>
+
+  <!-- plugins -->
+  <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/plugins/metismenu/metisMenu.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/plugins/metismenu/mm-vertical.css">
+  <link rel="stylesheet" type="text/css" href="assets/plugins/simplebar/css/simplebar.css">
+  
+  <!-- bootstrap css -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+  
+  <!-- main css -->
+  <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
+  <link href="sass/main.css" rel="stylesheet">
+  <link href="sass/dark-theme.css" rel="stylesheet">
+  <link href="sass/blue-theme.css" rel="stylesheet">
+  <link href="sass/semi-dark.css" rel="stylesheet">
+  <link href="sass/bordered-theme.css" rel="stylesheet">
+  <link href="sass/responsive.css" rel="stylesheet">
+
+  <!-- Add custom CSS for header -->
+  <style>
+    /* Custom Header Styles */
+    .custom-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--bs-body-bg);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .custom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 1rem;
+    }
+
+    /* Logo Styles */
+    .custom-logo {
+      flex: 0 0 auto;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-wrapper img {
+      height: 28px;
+      width: auto;
+    }
+
+    /* Center Navigation */
+    .custom-nav-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    /* Right Side Icons */
+    .custom-nav-right {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Process Selection Dropdown */
+    .process-select-btn {
+      padding: 6px 16px;
+      border-radius: 4px;
+      background: #0d6efd;
+      border: 1px solid #0d6efd;
+      color: var(--bs-white);
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .process-select-btn:hover {
+      background: #0b5ed7;
+      border-color: #0b5ed7;
+    }
+
+    .main-wrapper {
+      margin-top: 70px;  /* Adjust based on header height */
+      padding-bottom: 20px;
+      margin-left: -1px;
+      transition: ease-out 0.3s;
+    }
+  </style>
+
+  <!-- Add custom CSS for timeline -->
+  <style>
+    .process-title {
+      font-size: 1.25rem;
+      margin-bottom: 40px;
+      color: var(--bs-body-color);
+    }
+
+    .timeline-container {
+      padding: 0;
+      width: 100%;
+      max-width: 1200px;  /* Increased to accommodate spacing */
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Main thick progress line through dots */
+    .timeline-line {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px auto;
+      padding: 0 40px;
+    }
+
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: var(--bs-border-color);
+      left: 0;
+      top: 8%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    /* Progress animation for main line */
+    .timeline-line::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 4px;
+      background: var(--bs-primary);
+      left: 0;
+      top: 8%;
+      transform: translateY(-50%);
+      z-index: 2;
+      transition: width 0.6sease-in-out;
+    }
+
+    /* Progress states */
+    .timeline-line[data-progress="0"]::after { width: 0%; }
+    .timeline-line[data-progress="1"]::after { width: 20%; }
+    .timeline-line[data-progress="2"]::after { width: 40%; }
+    .timeline-line[data-progress="3"]::after { width: 60%; }
+    .timeline-line[data-progress="4"]::after { width: 80%; }
+    .timeline-line[data-progress="5"]::after { width: 100%; }
+
+    /* Thin line through boxes */
+    .timeline-content-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: var(--bs-border-color);
+      left: 0;
+      top: 120px;
+      z-index: 1;
+    }
+
+    .timeline-content-line::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      background: var(--bs-primary);
+      left: 0;
+      top: 0;
+      transition: width 0.6s ease-in-out;
+      transition-delay: 0.2s;
+    }
+
+    /* Progress states for thin line */
+    .timeline-content-line[data-progress="0"]::after { width: 0%; }
+    .timeline-content-line[data-progress="1"]::after { width: 30%; }
+    .timeline-content-line[data-progress="2"]::after { width: 40%; }
+    .timeline-content-line[data-progress="3"]::after { width: 60%; }
+    .timeline-content-line[data-progress="4"]::after { width: 80%; }
+    .timeline-content-line[data-progress="5"]::after { width: 100%; }
+
+    .timeline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 3;
+      padding: 0 10px;  /* Added spacing between items */
+    }
+
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bs-light);
+      border: 2px solid var(--bs-border-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .timeline-dot.active {
+      background: var(--bs-primary);
+      border-color: var(--bs-primary);
+      box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+    }
+
+    .timeline-dot.completed {
+      background: var(--bs-primary);
+      border-color: var(--bs-primary);
+    }
+
+    .timeline-content {
+      text-align: center;
+      width: 180px;  /* Fixed width for all boxes */
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .timeline-content .card {
+      height: 80px;  /* Fixed height for all boxes */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      background: rgba(var(--bs-dark-rgb), 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .timeline-content .card.active {
+      border-color: var(--bs-primary);
+      box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .timeline-content .card-title {
+      font-size: 0.9rem;
+      margin: 0;
+      color: var(--bs-light);
+      line-height: 1.2;  /* Improved line height for wrapped text */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;  /* Limit to 2 lines */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- start header -->
+  <header class="custom-header">
+    <nav class="custom-nav">
+      <!-- Logo Section -->
+      <div class="custom-logo">
+        <div class="logo-wrapper">
+          <img src="assets/images/logo.gif" class="logo-img" alt="" style="width: 150px; height: auto;">
+          <span class="logo-text"></span>
+        </div>
+      </div>
+
+      <!-- Center Navigation -->
+      <div class="custom-nav-center">
+        <div class="dropdown">
+          <button class="process-select-btn dropdown-toggle" type="button" id="processDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Process Dashboard
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="processDropdown">
+            <li><a class="dropdown-item" href="#">Process 1</a></li>
+            <li><a class="dropdown-item" href="#">Process 2</a></li>
+            <li><a class="dropdown-item" href="#">Process 3</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Side Icons -->
+      <div class="custom-nav-right">
+        <!-- User Profile -->
+        <div class="nav-icon-wrapper">
+          <a href="javascript:;" class="nav-icon" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user-circle fa-lg"></i>
+          </a>
+          <div class="dropdown-menu dropdown-user dropdown-menu-end shadow">
+            <a class="dropdown-item gap-2 py-2" href="javascript:;">
+              <div class="text-center">
+                <i class="fa-solid fa-user-circle fa-4x mb-3"></i>
+                <!-- <h5 class="user-name mb-0 fw-bold">Hello {{ Auth::user() }}</h5> -->
+              </div>
+            </a>
+            <hr class="dropdown-divider">
+            <!-- <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ route('logout') }}"> -->
+              <i class="fa-solid fa-sign-out-alt"></i>Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- end header -->
+
+  <!-- start sidebar -->
+  <!-- end sidebar -->
+
+  <!-- start main wrapper -->
+  <main class="main-wrapper">
+    <div class="main-content">
+      <div class="container">
+
+        
+        <div class="timeline-container">
+          <div class="timeline-line" data-progress="1">         
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+              <div class="timeline-dot completed"></div>
+              <div class="timeline-content">
+                <div class="card completed">
+                  <div class="card-body">
+                    <h4 class="card-title">Create Hierarchy</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+              <div class="timeline-dot active"></div>
+              <div class="timeline-content">
+                <div class="card active">
+                  <div class="card-body">
+                    <h4 class="card-title text-primary">Create Process</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Create/Edit checklist</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Create/Edit Criteria</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Assign Hierarchy to process</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline Item 6 -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Create/Edit Department</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- end main wrapper -->
+
+  <!-- start overlay -->
+  <div class="overlay btn-toggle"></div>
+  <!-- end overlay -->
+
+  <!-- start cart -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart">
+  </div>
+  <!-- end cart -->
+
+  <!-- bootstrap js -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- plugins -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+  <script src="assets/plugins/metismenu/metisMenu.min.js"></script>
+  <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+  // Function to update progress
+  function updateProgress(step) {
+    const timeline = document.querySelector('.timeline-line');
+    const contentLine = document.querySelector('.timeline-content-line');
+    const dots = document.querySelectorAll('.timeline-dot');
+    const cards = document.querySelectorAll('.timeline-content .card');
+    
+    timeline.setAttribute('data-progress', step);
+    contentLine.setAttribute('data-progress', step);
+    
+    dots.forEach((dot, index) => {
+      if (index < step) {
+        dot.classList.add('completed');
+        dot.classList.remove('active');
+      } else if (index === step) {
+        dot.classList.add('active');
+        dot.classList.remove('completed');
+      } else {
+        dot.classList.remove('active', 'completed');
+      }
+    });
+    
+    cards.forEach((card, index) => {
+      if (index === step) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+  }
+
+  // Example usage:
+  // updateProgress(0); // Start
+  // updateProgress(1); // After Day 1
+  // updateProgress(2); // After Day 2
+  // updateProgress(3); // Completed
+  </script>
+</body>
+</html>
